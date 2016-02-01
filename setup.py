@@ -90,7 +90,7 @@ params = dict(
     test_suite = "nose.collector",
     author = 'Dave Brondsema',
     author_email = 'dave@brondsema.net',
-    url = 'http://sourceforge.net/projects/datadiff/',
+    url = 'https://github.com/jaraco/datadiff/',
     keywords = ['data', 'diff'],
     classifiers = [
         'Programming Language :: Python',

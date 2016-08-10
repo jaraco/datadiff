@@ -271,7 +271,7 @@ def diff_dict(a, b, context=3, depth=0, fromfile='a', tofile='b'):
     for key in a.keys():
         if key not in b:
             ddiff.delete(dictitem((key, a[key])))
-        elif a[key] != b[key]:
+        elif hashable(a[key]) != hashable(b[key]):
             try:
                 nested_diff = diff(a[key], b[key], context, depth+1)
                 nested_item = dictitem((key, nested_diff))

@@ -17,12 +17,12 @@ limitations under the License.
 import logging
 log = logging.getLogger('datadiff.tools')
 
-from datadiff import diff, DiffTypeError
+from datadiff import diff, DiffTypeError, hashable
 
 # drop-in replacements for http://somethingaboutorange.com/mrl/projects/nose/doc/module_nose.tools.html
 
 def assert_equal(first, second, msg=None):
-    if first == second:
+    if hashable(first) == hashable(second):
         return
     if msg is None:
         try:

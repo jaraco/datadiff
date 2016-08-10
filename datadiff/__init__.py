@@ -32,6 +32,8 @@ string_types = str,
 if PY2:
     string_types = eval('basestring'),
 
+FLOAT_PRECISION = None
+
 """
 For each type, we need:
 * a diff()
@@ -178,6 +180,8 @@ def hashable(s):
             ret = frozenset(hashable(_) for _ in s.items())
         elif type(s) == set:
             ret = frozenset(s)
+        elif type(s) == float and FLOAT_PRECISION is not None:
+            ret = round(s, FLOAT_PRECISION)
         else:
             ret = s
 
